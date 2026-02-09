@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #f3f3f3;
+  background-color: #141414;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-container {
+  width: 100%;
+  padding: 72px 0 56px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.top-container h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 46px;
+  font-weight: 600;
+  margin: 0 0 14px;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.top-container p {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+.top-container h1 + p {
+  margin-top: 6px;
+}
+
+.main-container {
+  flex: 1;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.main-container p {
+  font-family: "Roboto", sans-serif;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+button.input {
+  position: relative;
+  background-color: #1f1f1f;
+  color: #f3f3f3;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 50px 100px;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 15px;
+  cursor: pointer;
+  overflow: hidden;
+  transition:all 0.3s;
+}
+
+button.input:hover {
+  background-color: #2a2a2a;
+}
+
+button.input input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+footer {
+  width: 100%;
+  margin-top: auto;
+  padding: 30px 0;
+  border-top: 1.2px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: center;
+  gap: 140px;
+}
+
+footer > div {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+footer > div > a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #f3f3f3;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+footer > div > a img {
+  width: 28px;
+  height: 28px;
+}
+
+footer ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+footer li a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #f3f3f3;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+
+footer li a:hover {
+  opacity: 0.8;
+}
+
+footer li img {
+  width: 18px;
+  height: 18px;
+}
+
+#github {
+  filter:invert(100%);
+}
