@@ -17,7 +17,7 @@ body {
 
 .top-container h1 {
   font-family: "Montserrat", sans-serif;
-  font-size: 46px;
+  font-size: 53px;
   font-weight: 600;
   margin: 0 0 14px;
   letter-spacing: -0.015em;
@@ -135,4 +135,55 @@ footer li img {
 
 #github {
   filter:invert(100%);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+
+  .top-container {
+    padding: 48px 16px 40px;
+  }
+
+  .top-container h1 {
+    font-size: 34px;
+  }
+
+  .top-container p {
+    font-size: 15px;
+  }
+
+  .main-container {
+    margin-top: 40px;
+    padding: 0 16px;
+  }
+
+  .main-container p {
+    font-size: 26px;
+  }
+
+  button.input {
+    padding: 32px 24px;
+    width: 100%;
+    max-width: 320px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 40px;
+    padding: 24px 16px;
+    align-items: center;
+  }
+
+  footer > div {
+    align-items: center;
+    text-align: center;
+  }
+
+  footer ul {
+    justify-content: center;
+  }
 }
