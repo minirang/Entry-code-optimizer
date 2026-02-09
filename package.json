@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@types/tar-stream": "^3.1.4"
+  },
+  "devDependencies": {
+    "fflate": "^0.8.2"
+  }
+}
