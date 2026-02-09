@@ -29,8 +29,8 @@ function fixAllObjects(project, log) {
     const { sceneIdx, objIdx } = findObjectIdx(objects, scenes, obj)
     const scene = scenes[sceneIdx]
     const stack = [
-      `scene #${sceneIdx + 1} ${scene?.id} ${scene?.name}`,
-      `object #${objIdx + 1} ${obj.id} ${obj.name}`,
+      `장면 #${sceneIdx + 1} ${scene?.name} (${scene?.id})`,
+      `오브젝트 #${objIdx + 1} ${obj.name} (${obj.id})`,
     ]
 
     const script = JSON.parse(obj.script)
@@ -48,7 +48,7 @@ function fixAllFunctions(project, log) {
 
   functions.forEach((func, funcIdx) => {
     const stack = [
-      `function #${funcIdx + 1} ${func.id}`,
+      `함수 #${funcIdx + 1} (${func.id})`,
     ]
 
     const script = JSON.parse(func.content)
@@ -85,7 +85,7 @@ function fixAllBlocks(project, obj, script, stack, label, log) {
     thread.forEach((block, blockIdx) => {
       fixBlockRecursive(project, obj, script, thread, block, stack.concat(
         `${label} #${threadIdx + 1}`,
-        `block #${blockIdx + 1} ${block.id} ${block.type}`,
+        `블록 #${blockIdx + 1} ${block.type} (${block.id})`,
       ), log)
     })
   })
@@ -99,7 +99,7 @@ function fixAllBlocks(project, obj, script, stack, label, log) {
  * @param {(msg: string, stack: string[]) => void} [log]
  */
 function fixScript(project, obj, script, stack, log) {
-  fixAllBlocks(project, obj, script, stack, 'thread', log)
+  fixAllBlocks(project, obj, script, stack, '스레드', log)
 }
 
 /**
@@ -110,7 +110,7 @@ function fixScript(project, obj, script, stack, log) {
  * @param {(msg: string, stack: string[]) => void} [log]
  */
 function fixStatements(project, obj, script, stack, log) {
-  fixAllBlocks(project, obj, script, stack, 'statement', log)
+  fixAllBlocks(project, obj, script, stack, '명령문', log)
 }
 
 /**
@@ -127,7 +127,7 @@ function fixBlockRecursive(project, obj, script, thread, block, stack, log) {
 
   block.params?.forEach((param, i) => {
     if (isBlock(param)) {
-      fixBlockRecursive(project, obj, script, thread, param, stack.concat(`param #${i + 1} ${param.type}`), log)
+      fixBlockRecursive(project, obj, script, thread, param, stack.concat(`매개변수 #${i + 1} ${param.type}`), log)
     }
   })
 

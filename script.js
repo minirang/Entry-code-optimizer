@@ -8,6 +8,21 @@ const fileInput = /** @type {HTMLInputElement} */(
 )
 
 /**
+ * @param {number} progress
+ */
+function onProgress(progress) {
+  console.log('추출 %d%%', progress * 100)
+}
+
+/**
+ * @param {string} message
+ * @param {string[]} stack
+ */
+function log(message, stack) {
+  console.log('%s\n%s', message, stack.join('\n'))
+}
+
+/**
  * 파일이 로딩 중일 때 다른 파일을 선택하면 abort됨.
  * @type {AbortController | undefined}
  */
@@ -21,9 +36,10 @@ fileInput.addEventListener('change', async () => {
   if (!pack) return
 
   const project = await extractProjectJson(pack, {
-    signal
+    onProgress,
+    signal,
   })
 
-  const optimized = optimize(project, console.log)
+  const optimized = optimize(project, log)
   console.log(optimized)
 })
